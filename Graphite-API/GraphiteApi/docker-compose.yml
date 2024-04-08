@@ -1,0 +1,104 @@
+version: '3.4'
+
+networks:
+    orderNetwork:    
+    pencilNetwork:
+    userNetwork:
+    gatewayNetwork:
+
+
+services:
+
+  graphiteapi.supergateway:
+    image: ${DOCKER_REGISTRY-}graphiteapisupergateway
+    build:
+      context: .
+      dockerfile: Gateways/GraphiteApi.SuperGateway/Dockerfile
+    networks:
+      - gatewayNetwork
+    depends_on:
+      - graphiteapi.order.api
+      - graphiteapi.pencil.api
+      - graphiteapi.user.api
+    ports:
+      - "5000:8080"
+
+
+  graphiteapi.order.api:
+    image: ${DOCKER_REGISTRY-}graphiteapiorderapi
+    build:
+      context: .
+      dockerfile: APIs/Order/GraphiteApi.Order.API/Dockerfile
+    networks:
+      - orderNetwork
+      - gatewayNetwork
+    depends_on:
+      - graphiteapi.order.db
+    environment:
+      - DB_HOST_ORDER=graphiteapi.order.db
+      - DB_DATABASE_ORDER=GraphiteOrderDB
+      - DB_USER_ORDER=sa
+      - DB_MSSQL_SA_PASSWORD_ORDER=Pwd123!!1
+
+  graphiteapi.pencil.api:
+    image: ${DOCKER_REGISTRY-}graphiteapipencilapi
+    build:
+      context: .
+      dockerfile: APIs/Pencil/GraphiteApi.Pencil.API/Dockerfile
+    networks:
+      - pencilNetwork
+      - gatewayNetwork
+    depends_on:
+      - graphiteapi.user.db
+    environment:
+      - DB_HOST_PENCIL=graphiteapi.pencil.db
+      - DB_DATABASE_PENCIL=GraphitePencilDB
+
+  graphiteapi.user.api:
+    image: ${DOCKER_REGISTRY-}graphiteapiuserapi
+    build:
+      context: .
+      dockerfile: APIs/User/GraphiteApi.User.API/Dockerfile
+    networks:
+      - userNetwork
+      - gatewayNetwork
+    depends_on:
+      - graphiteapi.user.db
+    environment:
+      - DB_HOST_USER=graphiteapi.user.db
+      - DB_DATABASE_USER=GraphiteUserDB
+      - DB_USER_USER=sa
+      - DB_MSSQL_SA_PASSWORD_USER=Pwd123!!1
+      
+
+  graphiteapi.order.db:
+    container_name: orderdb
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    networks:
+      - orderNetwork
+    ports:
+      - "7000:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Pwd123!!1
+      - MSSQL_PID=Developer
+
+  graphiteapi.pencil.db:
+    container_name: pencildb
+    image: mongo:latest
+    networks:
+      - pencilNetwork
+    ports:
+      - "7002:27017"
+
+  graphiteapi.user.db:
+    container_name: userdb
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    networks:
+      - userNetwork
+    ports:
+      - "7001:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Pwd123!!1
+      - MSSQL_PID=Developer

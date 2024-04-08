@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+    <Folder Include="Services\Extensions\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Domain\GraphiteApi.Domain.Commons\GraphiteApi.Domain.Commons.csproj" />
+    <ProjectReference Include="..\GraphiteApi.User.DataAccess\GraphiteApi.User.DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,81 @@
+﻿{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/api/user/add",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "graphiteapi.user.api",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/user/add"
+    },
+
+    {
+      "UpstreamPathTemplate": "/api/user/getAll",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "graphiteapi.user.api",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/user/getAll"
+    },
+
+    {
+      "UpstreamPathTemplate": "/api/user/getById/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "graphiteapi.user.api",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/user/getById/{id}"
+    },
+
+    {
+      "UpstreamPathTemplate": "/api/user/login",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "graphiteapi.user.api",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/user/login"
+    },
+
+    {
+      "UpstreamPathTemplate": "/api/user/update",
+      "UpstreamHttpMethod": [ "Put" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "graphiteapi.user.api",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/user/update"
+    },
+
+    {
+      "UpstreamPathTemplate": "/api/user/delete/{id}",
+      "UpstreamHttpMethod": [ "Delete" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "graphiteapi.user.api",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/user/delete/{id}"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "graphiteapi.order.api": "StartDebugging",
+        "graphiteapi.pencil.api": "StartDebugging",
+        "graphiteapi.user.api": "StartDebugging",
+        "graphiteapi.supergateway": "StartDebugging"
+      }
+    }
+  }
+}

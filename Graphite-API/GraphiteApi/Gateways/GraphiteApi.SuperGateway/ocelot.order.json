@@ -1,0 +1,40 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/api/order/add",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "graphiteapi.order.api",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/order/add"
+    },
+    {
+      "UpstreamPathTemplate": "/api/order/getAll",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "graphiteapi.order.api",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/order/getAll"
+    },
+    {
+      "UpstreamPathTemplate": "/api/order/update",
+      "UpstreamHttpMethod": [ "Put" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "graphiteapi.order.api",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/order/update"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/api/pencil/add",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "graphiteapi.pencil.api",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/pencil/add"
+    },
+    {
+      "UpstreamPathTemplate": "/api/pencil/get",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "graphiteapi.pencil.api",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/pencil/get"
+    },
+    {
+      "UpstreamPathTemplate": "/api/pencil/get/{Id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "graphiteapi.pencil.api",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/pencil/get/{Id}"
+    },
+    {
+      "UpstreamPathTemplate": "/api/pencil/update",
+      "UpstreamHttpMethod": [ "Put" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "graphiteapi.pencil.api",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/pencil/update"
+    },
+    {
+      "UpstreamPathTemplate": "/api/pencil/delete/{Id}",
+      "UpstreamHttpMethod": [ "Delete" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "graphiteapi.pencil.api",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/pencil/delete/{Id}"
+    }
+  ]
+}
