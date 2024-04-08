@@ -8,7 +8,6 @@ Resources
 
 - [Commit messages](https://dev.to/hornet_daemon/git-commit-patterns-5dm7)
 - [Authentication Keycloak](https://www.keycloak.org/)
-- [RabbitMQ ???](https://www.rabbitmq.com/)
 
 ## Documentation:
 
